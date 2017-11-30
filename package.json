@@ -1,0 +1,62 @@
+{
+  "name": "IM646_project",
+  "version": "1.0.0",
+  "description": "A project for our course information visualisation.",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --content-base public --open --history-api-fallback",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://sa-rah@github.com/sa-rah/IM646_Project.git"
+  },
+  "keywords": [
+    "information",
+    "visualisation",
+    "data"
+  ],
+  "author": "Thomas Preindl, Sarah Sauseng",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sa-rah/IM646_Project/issues"
+  },
+  "homepage": "https://github.com/sa-rah/IM646_Project#readme",
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
+    "redux-logger": "^3.0.6"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.2",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "css-loader": "^0.28.7",
+    "eslint": "^4.12.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-import-resolver-webpack": "^0.8.3",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-react": "^7.5.1",
+    "install": "^0.10.2",
+    "material-ui": "^0.19.4",
+    "npm": "^5.5.1",
+    "react-tap-event-plugin": "^3.0.2",
+    "style-loader": "^0.19.0",
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.5"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-1",
+      "react"
+    ]
+  }
+}
