@@ -1,9 +1,7 @@
-import React from 'react';
+/* eslint-env browser */
 import ReactDOM from 'react-dom';
 
-const root = document.querySelector('#root');
-
 ReactDOM.render(
-        <div>{1 + 1}</div>,
-        root,
+        <App/>,
+        document.getElementById('root'),
 );
