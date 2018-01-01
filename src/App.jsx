@@ -1,14 +1,19 @@
 import React from 'react';
-import D3 from 'd3';
+import VisualisationPart from './components/VisualisationPart';
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+  }
+
+  componentWillMount() {
   }
 
   render() {
-    this.setState = {};
-    return <div>Hello World!</div>;
+    const visual = <div>
+        <h1>Humans and livestock - Visualisation</h1>
+        <VisualisationPart />
+    </div>;
+    return visual;
   }
 }
