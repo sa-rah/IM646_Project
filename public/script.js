@@ -130,7 +130,7 @@ function draw(csv) {
         });
 
         /* bars */
-        let arc = d3.svg.arc()
+        let arc = d3.arc()
             .startAngle(function (d, i) {
                 return d.startAngle;
             })
@@ -148,7 +148,16 @@ function draw(csv) {
             })
             .attr("d", arc);
 
-        bars.transition().ease("elastic").duration(1000).delay(function (d, i) {
+        let x_scale = d3.scaleLinear()
+            .domain([0, 100])
+            .range([innerRadius, maxBarHeight]);
+
+
+        let y_scale = d3.scaleLinear()
+            .domain([0, 100])
+            .range([-innerRadius, -maxBarHeight]);
+
+        bars.transition().ease(d3.easeElastic).duration(1000).delay(function (d, i) {
             return i * 100;
         })
             .attrTween("d", function (d, index) {
@@ -158,15 +167,6 @@ function draw(csv) {
                     return arc(d, index);
                 };
             });
-
-        let x_scale = d3.scale.linear()
-            .domain([0, 100])
-            .range([innerRadius, maxBarHeight]);
-
-
-        let y_scale = d3.scale.linear()
-            .domain([0, 100])
-            .range([-innerRadius, -maxBarHeight]);
 
         svg.selectAll("circle.x.minor")
             .data(y_scale.ticks(10))
