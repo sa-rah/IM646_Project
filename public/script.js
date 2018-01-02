@@ -170,14 +170,7 @@ function draw(csv) {
 
                 //Build up the new arc notation, set the sweep-flag to 0
                 newArc = "M" + newStart + "A" + middleSec + "0 0 0 " + newEnd;
-            } //if
-
-            //Create a new invisible arc that the text can flow along
-            /*                            svg.append("path")
-             .attr("class", "hiddenDonutArcs")
-             .attr("id", "category_label_"+i)
-             .attr("d", newArc)
-             .style("fill", "none");*/
+            }
 
             // modifying existing arc instead
             d3.select(this).attr("d", newArc);
@@ -187,7 +180,6 @@ function draw(csv) {
             .data(cats)
             .enter().append("text")
             .attr("class", "category-label-text")
-            //.attr("x", 0)   //Move the text from the start angle of the arc
             //Move the labels below the arcs for those slices with an end angle greater than 90 degrees
             .attr("dy", function(d, i) {
                 var startAngle = (i * 2 * Math.PI) / numCatBars,
@@ -328,12 +320,29 @@ function draw(csv) {
                 };
             });
 
-        var x_scale = d3.scale.linear()
+        let div = d3.select("body").append("div")
+            .attr("class", "tooltip")
+            .style("opacity", 0);
+
+        // TOOLTIP
+        bars.on("mouseover", function(d) {
+            div.transition()
+                .duration(200)
+                .style("opacity", .9);
+            div.html("test" + "<br/>")
+                .style("left", (d3.event.pageX) + "px")
+                .style("top", (d3.event.pageY - 28) + "px");
+        }).on("mouseout", function(d) {
+                div.transition()
+                    .duration(500)
+                    .style("opacity", 0);});
+
+        let x_scale = d3.scale.linear()
             .domain([0, 100])
             .range([innerRadius, maxBarHeight]);
 
 
-        var y_scale = d3.scale.linear()
+        let y_scale = d3.scale.linear()
             .domain([0, 100])
             .range([-innerRadius, -maxBarHeight]);
 
