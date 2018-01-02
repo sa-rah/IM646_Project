@@ -6,7 +6,7 @@ function draw(csv) {
         height = 600,
         maxBarHeight = height / 2 - (margin + 70);
 
-    var innerRadius = 0.1 * maxBarHeight; // innermost circle
+    var innerRadius = 0.2 * maxBarHeight; // innermost circle
 
     var svg = d3.select('body')
         .append("svg")

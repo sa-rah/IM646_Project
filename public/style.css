@@ -1,16 +1,32 @@
 /* Styles go here */
 
 body {
-    font: 8px sans-serif;
+    font-family: Dosis, sans-serif;
+    font-size: 14px;
     text-align: center;
     margin: 50px;
-    background: #B2DFDB;
+    background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);;
 }
 
 h2 {
-    font-size: 40px;
-    font-weight: 700;
+    font-family: Dosis, sans-serif;
+    font-size: 38px;
+    font-weight: 800;
     color: #006064;
+}
+
+a {
+   color: #006064;
+}
+
+p {
+    margin: 20px;
+}
+
+span {
+    margin: 15px;
+    font-size: 18px;
+    font-weight: 500;
 }
 
 .axis path,
