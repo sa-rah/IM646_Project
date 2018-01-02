@@ -1,21 +1,37 @@
 category_label,question_label,value
-Europe,Educate Self,96
-Europe,Research,89
-Europe,Keep Informed,79
-Asia,Influence Others,56
-Asia,Activate Support,52
-Asia,Join a Cause,26
-Australia,Work,69
-Australia,Manage Finances,30
-Australia,Sell,19
-Africa,Opine,62
-Africa,Entertain Others,48
-Africa,Emote,44
-Africa,Be Creative,42
-South America,Connect,92
-South America,Share,86
-South America,Discuss,76
-South America,Be Part of a Community,72
-North America,Pass Time,100
-North America,Be Entertained,82
-North America,Escape,66
+Europe,Human,96
+Europe,Pig,89
+Europe,Cattle,79
+Europe,Chicken,79
+Europe,Sheep,79
+Europe,Other,79
+Asia,Human,56
+Asia,Pig,52
+Asia,Cattle,26
+Asia,Chicken,26
+Asia,Sheep,26
+Asia,Other,26
+Australia,Human,69
+Australia,Pig,30
+Australia,Cattle,19
+Australia,Chicken,19
+Australia,Sheep,19
+Australia,Other,19
+Africa,Human,62
+Africa,Pig,48
+Africa,Cattle,44
+Africa,Chicken,42
+Africa,Sheep,42
+Africa,Other,42
+South America,Human,92
+South America,Pig,86
+South America,Cattle,76
+South America,Chicken,72
+South America,Sheep,72
+South America,Other,72
+North America,Human,100
+North America,Pig,82
+North America,Cattle,66
+North America,Chicken,82
+North America,Sheep,82
+North America,Other,82
