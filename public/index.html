@@ -13,11 +13,19 @@
     <h2>Humans and Livestock</h2>
     <div class="description">
     <p><span>This visualisation compares worldwide human population with the amount of animal meat that gets produced for agriculture for the last 10 years. You can hover over each bar to get more info displayed.</span></p>
-    <p><span>The meat data relate to animals slaughtered within national boundaries, irrespective of their origin. All data shown relate to total meat production, that is, from both commercial and farm slaughter. Data are given in terms of dressed carcass weight, excluding offal and slaughter fats.</span></p>
+        <p><span>The human population data relates to </span></p>
+        <p><span>The animal meat data relate to animals slaughtered within national boundaries, irrespective of their origin. All data shown relate to total meat production, that is, from both commercial and farm slaughter. Data are given in terms of dressed carcass weight, excluding offal and slaughter fats.</span></p>
     </div>
-    <script>
-        draw('./data/data.csv');
-    </script>
+        <div id="radialChart">
+            <script>
+                drawRadialBarChart('./data/data.csv');
+            </script>
+        </div>
+        <div id="barChart">
+            <script>
+                drawBarChart('./data/data.csv')
+            </script>
+        </div>
     <p>Visualisation Data gathered from <a href="http://www.fao.org/faostat/en/#data/QL/visualize">FAOSTAT</a>.</p>
 </body>
 </html>

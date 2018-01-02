@@ -1,14 +1,14 @@
-function draw(csv) {
+function drawRadialBarChart(csv) {
     "use strict";
 
-    var margin = 0,
+    let margin = 0,
         width = 700,
         height = 700,
         maxBarHeight = height / 2 - (margin + 70);
 
-    var innerRadius = 0.075 * maxBarHeight; // innermost circle
+    let innerRadius = 0.075 * maxBarHeight; // innermost circle
 
-    var svg = d3.select('body')
+    let svg = d3.select('body')
         .append("svg")
         .attr("width", width)
         .attr("height", height)
@@ -16,9 +16,9 @@ function draw(csv) {
         .attr("class", "chart")
         .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-    var defs = svg.append("defs");
+    let defs = svg.append("defs");
 
-    var gradients = defs
+    let gradients = defs
         .append("linearGradient")
         .attr("id", "gradient-chart-area")
         .attr("x1", "50%")
@@ -95,22 +95,22 @@ function draw(csv) {
 
     d3.csv(csv, function(error, data) {
 
-        var cats = data.map(function(d, i) {
+        let cats = data.map(function(d, i) {
             return d.category_label;
         });
 
-        var catCounts = {};
-        for (var i = 0; i < cats.length; i++) {
-            var num = cats[i];
+        let catCounts = {};
+        for (let i = 0; i < cats.length; i++) {
+            let num = cats[i];
             catCounts[num] = catCounts[num] ? catCounts[num] + 1 : 1;
         }
         // remove dupes (not exactly the fastest)
         cats = cats.filter(function(v, i) {
-            return cats.indexOf(v) == i;
+            return cats.indexOf(v) === i;
         });
-        var numCatBars = cats.length;
+        let numCatBars = cats.length;
 
-        var angle = 0,
+        let angle = 0,
             rotate = 0;
 
         data.forEach(function(d, i) {
@@ -125,7 +125,7 @@ function draw(csv) {
         });
 
         // category_label
-        var arc_category_label = d3.svg.arc()
+        let arc_category_label = d3.svg.arc()
             .startAngle(function(d, i) {
                 return (i * 2 * Math.PI) / numCatBars;
             })
@@ -135,7 +135,7 @@ function draw(csv) {
             .innerRadius(maxBarHeight + 40)
             .outerRadius(maxBarHeight + 64);
 
-        var category_text = svg.selectAll("path.category_label_arc")
+        let category_text = svg.selectAll("path.category_label_arc")
             .data(cats)
             .enter().append("path")
             .classed("category-label-arc", true)
@@ -147,26 +147,26 @@ function draw(csv) {
 
         category_text.each(function(d, i) {
             //Search pattern for everything between the start and the first capital L
-            var firstArcSection = /(^.+?)L/;
+            let firstArcSection = /(^.+?)L/;
 
             //Grab everything up to the first Line statement
-            var newArc = firstArcSection.exec(d3.select(this).attr("d"))[1];
+            let newArc = firstArcSection.exec(d3.select(this).attr("d"))[1];
             //Replace all the commas so that IE can handle it
             newArc = newArc.replace(/,/g, " ");
 
             //If the whole bar lies beyond a quarter of a circle (90 degrees or pi/2)
             // and less than 270 degrees or 3 * pi/2, flip the end and start position
-            var startAngle = (i * 2 * Math.PI) / numCatBars,
+            let startAngle = (i * 2 * Math.PI) / numCatBars,
                 endAngle = ((i + 1) * 2 * Math.PI) / numCatBars;
 
             if (startAngle > Math.PI / 2 && startAngle < 3 * Math.PI / 2 && endAngle > Math.PI / 2 && endAngle < 3 * Math.PI / 2) {
-                var startLoc = /M(.*?)A/, //Everything between the capital M and first capital A
+                let startLoc = /M(.*?)A/, //Everything between the capital M and first capital A
                     middleLoc = /A(.*?)0 0 1/, //Everything between the capital A and 0 0 1
                     endLoc = /0 0 1 (.*?)$/; //Everything between the 0 0 1 and the end of the string (denoted by $)
                 //Flip the direction of the arc by switching the start and end point (and sweep flag)
-                var newStart = endLoc.exec(newArc)[1];
-                var newEnd = startLoc.exec(newArc)[1];
-                var middleSec = middleLoc.exec(newArc)[1];
+                let newStart = endLoc.exec(newArc)[1];
+                let newEnd = startLoc.exec(newArc)[1];
+                let middleSec = middleLoc.exec(newArc)[1];
 
                 //Build up the new arc notation, set the sweep-flag to 0
                 newArc = "M" + newStart + "A" + middleSec + "0 0 0 " + newEnd;
@@ -182,7 +182,7 @@ function draw(csv) {
             .attr("class", "category-label-text")
             //Move the labels below the arcs for those slices with an end angle greater than 90 degrees
             .attr("dy", function(d, i) {
-                var startAngle = (i * 2 * Math.PI) / numCatBars,
+                let startAngle = (i * 2 * Math.PI) / numCatBars,
                     endAngle = ((i + 1) * 2 * Math.PI) / numCatBars;
                 return (startAngle > Math.PI / 2 && startAngle < 3 * Math.PI / 2 && endAngle > Math.PI / 2 && endAngle < 3 * Math.PI / 2 ? -4 : 14);
             })
@@ -196,8 +196,8 @@ function draw(csv) {
                 return d;
             });
 
-        // question_label
-        var arc_question_label = d3.svg.arc()
+        // livestock
+        let arc_livestock = d3.svg.arc()
             .startAngle(function(d, i) {
                 return d.startAngle;
             })
@@ -207,46 +207,39 @@ function draw(csv) {
             //.innerRadius(maxBarHeight + 2)
             .outerRadius(maxBarHeight + 2);
 
-        var question_text = svg.selectAll("path.question_label_arc")
+        let question_text = svg.selectAll("path.livestock")
             .data(data)
             .enter().append("path")
             .classed("question-label-arc", true)
             .attr("id", function(d, i) {
-                return "question_label_" + i;
+                return "livestock_" + i;
             }) //Give each slice a unique ID
             .attr("fill", "none")
-            .attr("d", arc_question_label);
+            .attr("d", arc_livestock);
 
         question_text.each(function(d, i) {
             //Search pattern for everything between the start and the first capital L
-            var firstArcSection = /(^.+?)L/;
+            let firstArcSection = /(^.+?)L/;
 
             //Grab everything up to the first Line statement
-            var newArc = firstArcSection.exec(d3.select(this).attr("d"))[1];
+            let newArc = firstArcSection.exec(d3.select(this).attr("d"))[1];
             //Replace all the commas so that IE can handle it
             newArc = newArc.replace(/,/g, " ");
 
             //If the end angle lies beyond a quarter of a circle (90 degrees or pi/2)
             //flip the end and start position
             if (d.startAngle > Math.PI / 2 && d.startAngle < 3 * Math.PI / 2 && d.endAngle > Math.PI / 2 && d.endAngle < 3 * Math.PI / 2) {
-                var startLoc = /M(.*?)A/, //Everything between the capital M and first capital A
+                let startLoc = /M(.*?)A/, //Everything between the capital M and first capital A
                     middleLoc = /A(.*?)0 0 1/, //Everything between the capital A and 0 0 1
                     endLoc = /0 0 1 (.*?)$/; //Everything between the 0 0 1 and the end of the string (denoted by $)
                 //Flip the direction of the arc by switching the start and end point (and sweep flag)
-                var newStart = endLoc.exec(newArc)[1];
-                var newEnd = startLoc.exec(newArc)[1];
-                var middleSec = middleLoc.exec(newArc)[1];
+                let newStart = endLoc.exec(newArc)[1];
+                let newEnd = startLoc.exec(newArc)[1];
+                let middleSec = middleLoc.exec(newArc)[1];
 
                 //Build up the new arc notation, set the sweep-flag to 0
                 newArc = "M" + newStart + "A" + middleSec + "0 0 0 " + newEnd;
-            } //if
-
-            //Create a new invisible arc that the text can flow along
-            /*                            svg.append("path")
-             .attr("class", "hiddenDonutArcs")
-             .attr("id", "question_label_"+i)
-             .attr("d", newArc)
-             .style("fill", "none");*/
+            }
 
             // modifying existing arc instead
             d3.select(this).attr("d", newArc);
@@ -256,30 +249,21 @@ function draw(csv) {
             .data(data)
             .enter().append("text")
             .attr("class", "question-label-text")
-            //.attr("x", 0)   //Move the text from the start angle of the arc
-            //.attr("y", 0)
-            //Move the labels below the arcs for those slices with an end angle greater than 90 degrees
-            /*                        .attr("dy", function (d, i) {
-             return (d.startAngle > Math.PI / 2 && d.startAngle < 3 * Math.PI / 2 && d.endAngle > Math.PI / 2 && d.endAngle < 3 * Math.PI / 2 ? 10 : -10);
-             })*/
             .append("textPath")
-            //.attr("startOffset", "50%")
-            //.style("text-anchor", "middle")
-            //.style("dominant-baseline", "central")
             .style('font-size', '7px')
             .style('font-family', 'sans-serif')
             .attr("xlink:href", function(d, i) {
-                return "#question_label_" + i;
+                return "#livestock_" + i;
             })
             .text(function(d) {
-                return d.question_label.toUpperCase();
+                return d.livestock.toUpperCase();
             })
             .call(wrapTextOnArc, maxBarHeight);
 
         // adjust dy (labels vertical start) based on number of lines (i.e. tspans)
         question_text.each(function(d, i) {
             //console.log(d3.select(this)[0]);
-            var textPath = d3.select(this)[0][0],
+            let textPath = d3.select(this)[0][0],
                 tspanCount = textPath.childNodes.length;
 
             if (d.startAngle > Math.PI / 2 && d.startAngle < 3 * Math.PI / 2 && d.endAngle > Math.PI / 2 && d.endAngle < 3 * Math.PI / 2) {
@@ -291,7 +275,7 @@ function draw(csv) {
         });
 
         /* bars */
-        var arc = d3.svg.arc()
+        let arc = d3.svg.arc()
             .startAngle(function(d, i) {
                 return d.startAngle;
             })
@@ -300,7 +284,7 @@ function draw(csv) {
             })
             .innerRadius(innerRadius);
 
-        var bars = svg.selectAll("path.bar")
+        let bars = svg.selectAll("path.bar")
             .data(data)
             .enter().append("path")
             .classed("bars", true)
@@ -313,7 +297,7 @@ function draw(csv) {
             return i * 100;
         })
             .attrTween("d", function(d, index) {
-                var i = d3.interpolate(d.outerRadius, x_scale(+d.value));
+                let i = d3.interpolate(d.outerRadius, x_scale(+d.value));
                 return function(t) {
                     d.outerRadius = i(t);
                     return arc(d, index);
@@ -324,18 +308,20 @@ function draw(csv) {
             .attr("class", "tooltip")
             .style("opacity", 0);
 
+        console.log(data);
         // TOOLTIP
-        bars.on("mouseover", function(d) {
+        bars.on("mouseover", function(d, index) {
             div.transition()
                 .duration(200)
                 .style("opacity", .9);
-            div.html("test" + "<br/>")
+            div.html("<h4>" + data[index].category_label + "</h4><br/>" + data[index].livestock + "<br/>")
                 .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY - 28) + "px");
         }).on("mouseout", function(d) {
                 div.transition()
-                    .duration(500)
-                    .style("opacity", 0);});
+                    .duration(200)
+                    .style("opacity", 0);
+        });
 
         let x_scale = d3.scale.linear()
             .domain([0, 100])
@@ -378,23 +364,31 @@ function draw(csv) {
     });
 }
 
-// https://bl.ocks.org/mbostock/7555321
+function drawBarChart(csv) {
+
+    d3.csv(csv, function (error, data) {
+
+    });
+
+}
+
+
 function wrapTextOnArc(text, radius) {
     // note getComputedTextLength() doesn't work correctly for text on an arc,
     // hence, using a hidden text element for measuring text length.
-    var temporaryText = d3.select('svg')
+    let temporaryText = d3.select('svg')
         .append("text")
         .attr("class", "temporary-text") // used to select later
         .style("font", "7px sans-serif")
         .style("opacity", 0); // hide element
 
-    var getTextLength = function(string) {
+    let getTextLength = function(string) {
         temporaryText.text(string);
         return temporaryText.node().getComputedTextLength();
     };
 
     text.each(function(d) {
-        var text = d3.select(this),
+        let text = d3.select(this),
             words = text.text().split(/[ \f\n\r\t\v]+/).reverse(), //Don't cut non-breaking space (\xA0), as well as the Unicode characters \u00A0 \u2028 \u2029)
             word,
             wordCount = words.length,

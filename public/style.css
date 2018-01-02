@@ -8,11 +8,32 @@ body {
     background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);;
 }
 
+#charts {
+    margin: auto;
+    width: 1000px;
+    padding: 25px;
+}
+
+#barChart {
+    float: right;
+}
+
+#radialChart {
+    float: left;
+}
+
 h2 {
     font-family: Dosis, sans-serif;
     font-size: 42px;
     font-weight: 800;
     color: #006064;
+}
+
+h4 {
+    font-family: Dosis, sans-serif;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 700;
 }
 
 a {
@@ -26,13 +47,13 @@ p {
 div.tooltip {
     position: absolute;
     text-align: center;
-    width: 60px;
-    height: 28px;
+    width: 250px;
+    height: 100px;
     padding: 2px;
     font: 12px sans-serif;
-    background: lightsteelblue;
+    background: #006064;
     border: 0px;
-    border-radius: 8px;
+    border-radius: 2px;
     pointer-events: none;
 }
 
