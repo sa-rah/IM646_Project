@@ -10,10 +10,9 @@ body {
 
 h2 {
     font-family: Dosis, sans-serif;
-    font-size: 38px;
+    font-size: 42px;
     font-weight: 800;
     color: #006064;
-    margin-bottom: 0;
 }
 
 a {
@@ -21,6 +20,12 @@ a {
 }
 
 p {
+    font-display: block;
+}
+
+.description {
+    width: 800px;
+    margin: auto;
     margin-top: 25px;
     margin-bottom: 50px;
 }
@@ -71,11 +76,11 @@ span {
 }
 
 .minor {
-    stroke-width: 1px
+    stroke-width: 1px;
 }
 
 .major {
-    stroke-width: 6px
+    stroke-width: 4px;
 }
 
 .question-label-arc {
@@ -92,7 +97,7 @@ span {
 
 .question-labels {
     text-anchor: middle;
-    font-weight: bold;
+    font-weight: 800;
     fill: #3e3e3e;
 }
 

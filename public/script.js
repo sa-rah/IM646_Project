@@ -2,8 +2,8 @@ function draw(csv) {
     "use strict";
 
     var margin = 0,
-        width = 600,
-        height = 600,
+        width = 700,
+        height = 700,
         maxBarHeight = height / 2 - (margin + 70);
 
     var innerRadius = 0.075 * maxBarHeight; // innermost circle

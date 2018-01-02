@@ -3,35 +3,35 @@ Europe,Human,96
 Europe,Pig,89
 Europe,Cattle,79
 Europe,Chicken,79
-Europe,Sheep,79
+Europe,Horse,79
 Europe,Other,79
 Asia,Human,56
 Asia,Pig,52
 Asia,Cattle,26
 Asia,Chicken,26
-Asia,Sheep,26
+Asia,Horse,26
 Asia,Other,26
-Australia,Human,69
-Australia,Pig,30
-Australia,Cattle,19
-Australia,Chicken,19
-Australia,Sheep,19
 Australia,Other,19
-Africa,Human,62
-Africa,Pig,48
-Africa,Cattle,44
-Africa,Chicken,42
-Africa,Sheep,42
+Australia,Horse,19
+Australia,Chicken,19
+Australia,Cattle,19
+Australia,Pig,30
+Australia,Human,69
 Africa,Other,42
+Africa,Horse,42
+Africa,Chicken,42
+Africa,Cattle,44
+Africa,Pig,48
+Africa,Human,62
 South America,Human,92
 South America,Pig,86
 South America,Cattle,76
 South America,Chicken,72
-South America,Sheep,72
+South America,Horse,72
 South America,Other,72
 North America,Human,100
 North America,Pig,82
 North America,Cattle,66
 North America,Chicken,82
-North America,Sheep,82
+North America,Horse,82
 North America,Other,82
