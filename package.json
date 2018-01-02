@@ -1,0 +1,20 @@
+{
+  "name": "im646_project",
+  "version": "1.0.0",
+  "description": "A project for our course information visualisation.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server ./public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://sa-rah@github.com/sa-rah/IM646_Project.git"
+  },
+  "author": "Thomas Preindl, Sarah Sauseng",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sa-rah/IM646_Project/issues"
+  },
+  "homepage": "https://github.com/sa-rah/IM646_Project#readme"
+}
