@@ -67,15 +67,15 @@ function draw(csv) {
 
     gradients.append("stop")
         .attr("offset", "0%")
-        .attr("stop-color", "#F3D5AA");
+        .attr("stop-color", "#00BCD4");
 
     gradients.append("stop")
         .attr("offset", "50%")
-        .attr("stop-color", "#F4A636");
+        .attr("stop-color", "#00838F");
 
     gradients.append("stop")
         .attr("offset", "100%")
-        .attr("stop-color", "#AF4427");
+        .attr("stop-color", "#3F51B5");
 
     svg.append("circle")
         .attr("r", maxBarHeight + 70)

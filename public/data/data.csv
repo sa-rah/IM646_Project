@@ -1,23 +1,21 @@
 category_label,question_label,value
-Learn,Educate Self,96
-Learn,Research,89
-Learn,Keep Informed,79
-Have Fun,Pass Time,100
-Have Fun,Be Entertained,82
-Have Fun,Escape,66
-Socialize,Connect,92
-Socialize,Share,86
-Socialize,Discuss,76
-Socialize,Be Part of a Community,72
-Express Yourself,Opine,62
-Express Yourself,Entertain Others,48
-Express Yourself,Emote,44
-Express Yourself,Be Creative,42
-Advocate,Influence Others,56
-Advocate,Activate Support,52
-Advocate,Join a Cause,26
-Do Business,Work,69
-Do Business,Manage Finances,30
-Do Business,Sell,19
-Shop,Purchase,33
-Shop,Compare,28
+Europe,Educate Self,96
+Europe,Research,89
+Europe,Keep Informed,79
+North America,Pass Time,100
+North America,Be Entertained,82
+North America,Escape,66
+South America,Connect,92
+South America,Share,86
+South America,Discuss,76
+South America,Be Part of a Community,72
+Africa,Opine,62
+Africa,Entertain Others,48
+Africa,Emote,44
+Africa,Be Creative,42
+Asia,Influence Others,56
+Asia,Activate Support,52
+Asia,Join a Cause,26
+Australia,Work,69
+Australia,Manage Finances,30
+Australia,Sell,19
