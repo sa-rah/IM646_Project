@@ -1,5 +1,5 @@
 import React from 'react';
-import D3 from 'd3';
+import { csv } from 'd3-request';
 import Sunburst from './Sunburst';
 
 const styles = {
@@ -23,13 +23,27 @@ const styles = {
 };
 
 export default class VisualisationPart extends React.Component {
-  componentWillMount() {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
+  componentWillMount() {
+    csv('./data/Population_Worldwide.csv', (error, data) => {
+      if (error) {
+        this.setState({ loadError: true });
+      }
+    });
   }
 
   render() {
     const visual = <div>
                       <h2 style={styles.h2}>Dashboard</h2>
+                      <svg width="300px" height="150px">
+                        <rect x="20" y="20" width="20px" height="20" rx="5" ry="5" />
+                        <rect x="60" y="20" width="20px" height="20" rx="5" ry="5" />
+                        <rect x="100" y="20" width="20px" height="20" rx="5" ry="5"/>
+                      </svg>
                       <Sunburst/>
                   </div>;
     return visual;
