@@ -1,0 +1,43 @@
+category_label,livestock,value
+Europe,Human,741447000
+Europe,Pig,
+Europe,Cattle,
+Europe,Chicken,
+Europe,Horse,
+Europe,Other,
+Asia,Human,4462680000
+Asia,Pig,
+Asia,Cattle,
+Asia,Chicken,
+Asia,Horse,
+Asia,Other,
+Australia,Other,
+Australia,Horse,
+Australia,Chicken,
+Australia,Cattle,
+Australia,Pig,
+Australia,Human,28786700+40117400+10126200+523167+681335
+Africa,Other,
+Africa,Horse,
+Africa,Chicken,
+Africa,Cattle,
+Africa,Pig,
+Africa,Human,1225080000
+South America,Human,43601800+420458000
+South America,Pig,
+South America,Cattle,
+South America,Chicken,
+South America,Horse,
+South America,Other,
+North America,Human,358594000+174989000
+North America,Pig,
+North America,Cattle,
+North America,Chicken,
+North America,Horse,
+North America,Other,
+Worldwide,Human,7466960000
+Worldwide,Pig,
+Worldwide,Cattle,
+Worldwide,Chicken,
+Worldwide,Horse,
+Worldwide,Other,

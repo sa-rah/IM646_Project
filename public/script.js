@@ -309,6 +309,7 @@ function drawRadialBarChart(csv) {
             .style("opacity", 0);
 
         console.log(data);
+
         // TOOLTIP
         bars.on("mouseover", function(d, index) {
             div.transition()
