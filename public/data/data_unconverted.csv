@@ -1,43 +1,49 @@
 category_label,livestock,value
-Europe,Human,741447000
-Europe,Pig,
-Europe,Cattle,
-Europe,Chicken,
-Europe,Horse,
-Europe,Other,
-Asia,Human,4462680000
-Asia,Pig,
-Asia,Cattle,
-Asia,Chicken,
-Asia,Horse,
-Asia,Other,
-Australia,Other,
-Australia,Horse,
-Australia,Chicken,
-Australia,Cattle,
-Australia,Pig,
-Australia,Human,28786700+40117400+10126200+523167+681335
-Africa,Other,
-Africa,Horse,
-Africa,Chicken,
-Africa,Cattle,
-Africa,Pig,
-Africa,Human,1225080000
-South America,Human,43601800+420458000
-South America,Pig,
-South America,Cattle,
-South America,Chicken,
-South America,Horse,
-South America,Other,
-North America,Human,358594000+174989000
-North America,Pig,
-North America,Cattle,
-North America,Chicken,
-North America,Horse,
-North America,Other,
-Worldwide,Human,7466960000
-Worldwide,Pig,
-Worldwide,Cattle,
-Worldwide,Chicken,
-Worldwide,Horse,
-Worldwide,Other,
+Europe,Human,741.447.000
+Europe,Pig,323.484.640
+Europe,Cattle,41.027.798
+Europe,Poultry,11.602.072.000
+Europe,Goat & Sheep,77.577.699
+Europe,Other,184.622.972
+
+Asia,Human,4.462.680.000
+Asia,Pig,885.775.548
+Asia,Cattle,122.229.332
+Asia,Poultry,31.286.629.000
+Asia,Goat & Sheep,609.347.866
+Asia,Other,704.603.674
+
+Australia,Other,102.363
+Australia,Goat & Sheep,57.107.673
+Australia,Poultry,771.417.000
+Australia,Cattle,13.661.200
+Australia,Pig,8.099.251
+Australia,Human,80.234.802
+
+Africa,Other,87.630.284
+Africa,Goat & Sheep,235.775.497
+Africa,Poultry,4.527.128.000
+Africa,Cattle,41.050.364
+Africa,Pig,29.884.126
+Africa,Human,1.225.080.000
+
+South America,Human,464.059.800
+South America,Pig,71.687.535
+South America,Cattle,65.319.460
+South America,Poultry,9.924.520.000
+South America,Goat & Sheep,22.939.189
+South America,Other,80.964.454
+
+North America,Human,533.583.000
+North America,Pig,159.235.974
+North America,Cattle,44.921.414
+North America,Poultry,12.179.253.000
+North America,Goat & Sheep,8.533.727
+North America,Other,5.270.949
+
+Worldwide,Human,7.466.960.000
+Worldwide,Pig,1.478.167.073
+Worldwide,Cattle,328.209.569
+Worldwide,Poultry,70.291.019.000
+Worldwide,Goat & Sheep, 1.011.281.651
+Worldwide,Other, 1.063.195.693
