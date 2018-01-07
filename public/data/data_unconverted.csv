@@ -47,3 +47,47 @@ Worldwide,Cattle,328.209.569
 Worldwide,Poultry,70.291.019.000
 Worldwide,Goat & Sheep, 1.011.281.651
 Worldwide,Other, 1.063.195.693
+
+category_label,livestock,value
+Europe,Human,74.1447000
+Europe,Pig,32.3484640
+Europe,Cattle,4.1027798
+Europe,Chicken,1116.3733000
+Europe,Goats & Sheep,7.7577699
+Europe,Other,18.4622972
+West & Central Asia,Human,33.2725800
+West & Central Asia,Pig,0.3729254
+West & Central Asia,Cattle,1.8054820
+West & Central Asia,Chicken,318.2082000
+West & Central Asia,Goats & Sheep,10.2684295
+West & Central Asia,Other,0.2904640
+East & Southern Asia,Human,412.9956000
+East & Southern Asia,Pig,88.2046294
+East & Southern Asia,Cattle,10.4174512
+East & Southern Asia,Chicken,2468.3944000
+East & Southern Asia,Goats & Sheep,50.6663572
+East & Southern Asia,Other,70.1698032
+Australia,Other,0.102363
+Australia,Goats & Sheep,5.7107673
+Australia,Chicken,75.7365000
+Australia,Cattle,1.3661200
+Australia,Pig,0.8099251
+Australia,Human,8.0234802
+Africa,Other,8.7630284
+Africa,Goats & Sheep,23.5775497
+Africa,Chicken,438.7253000
+Africa,Cattle,4.1050364
+Africa,Pig,2.9884126
+Africa,Human,122.5080000
+South America,Human,46.4059800
+South America,Pig,7.1687535
+South America,Cattle,6.5319460
+South America,Chicken,980.1586000
+South America,Goats & Sheep,2.2939189
+South America,Other,8.0964454
+North America,Human,53.3583000
+North America,Pig,15.9235974
+North America,Cattle,4.4921414
+North America,Chicken,1187.1448000
+North America,Goats & Sheep,0.8533727
+North America,Other,0.5270949

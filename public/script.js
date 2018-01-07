@@ -2,11 +2,11 @@ function drawRadialBarChart(csv) {
     "use strict";
 
     let margin = 0,
-        width = 700,
-        height = 700,
+        width = 750,
+        height = 750,
         maxBarHeight = height / 2 - (margin + 70);
 
-    let innerRadius = 0.075 * maxBarHeight; // innermost circle
+    let innerRadius = 0.15 * maxBarHeight; // innermost circle
 
     let svg = d3.select('body')
         .append("svg")
@@ -325,12 +325,12 @@ function drawRadialBarChart(csv) {
         });
 
         let x_scale = d3.scale.linear()
-            .domain([0, 100])
+            .domain([0, 1000])
             .range([innerRadius, maxBarHeight]);
 
 
         let y_scale = d3.scale.linear()
-            .domain([0, 100])
+            .domain([0, 1000])
             .range([-innerRadius, -maxBarHeight]);
 
         svg.selectAll("circle.x.minor")
