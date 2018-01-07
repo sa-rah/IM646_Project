@@ -1,43 +1,43 @@
-category_label,livestock,value
-Europe,Human,74.144700
-Europe,Pig,323.484640
-Europe,Cattle,41.027798
-Europe,Chicken,1116.373300
-Europe,Goats/Sheep,77.577699
-Europe,Other,184.622972
-West & Central Asia,Human,33.272580
-West & Central Asia,Pig,3.729254
-West & Central Asia,Cattle,18.054820
-West & Central Asia,Chicken,318.208200
-West & Central Asia,Goats/Sheep,102.684295
-West & Central Asia,Other,2.904640
-East & Southern Asia,Human,412.995600
-East & Southern Asia,Pig,882.046294
-East & Southern Asia,Cattle,104.174512
-East & Southern Asia,Chicken,2468.394400
-East & Southern Asia,Goats/Sheep,506.663572
-East & Southern Asia,Other,701.698032
-Australia,Other,1.02363
-Australia,Goats/Sheep,57.107673
-Australia,Chicken,75.736500
-Australia,Cattle,13.661200
-Australia,Pig,8.099251
-Australia,Human,8.0234802
-Africa,Other,87.630284
-Africa,Goats/Sheep,235.775497
-Africa,Chicken,438.725300
-Africa,Cattle,41.050364
-Africa,Pig,29.884126
-Africa,Human,122.5080000
-South America,Human,46.4059800
-South America,Pig,71.687535
-South America,Cattle,65.319460
-South America,Chicken,980.158600
-South America,Goats/Sheep,22.939189
-South America,Other,80.964454
-North America,Human,53.3583000
-North America,Pig,159.235974
-North America,Cattle,44.921414
-North America,Chicken,1187.144800
-North America,Goats/Sheep,8.533727
-North America,Other,5.270949
+category_label,livestock,value,amount
+Europe,Human,74.1447000,741447000
+Europe,Pig,323.484640,323484640
+Europe,Cattle,41.027798,41027798
+Europe,Chicken,1116.373300,1116373300
+Europe,Goats/Sheep,77.577699,77577699
+Europe,Other,184.622972,184622972
+West & Central Asia,Human,33.272580,332725800
+West & Central Asia,Pig,3.729254,3729254
+West & Central Asia,Cattle,18.054820,18054820
+West & Central Asia,Chicken,318.208200,318208200
+West & Central Asia,Goats/Sheep,102.684295,102684295
+West & Central Asia,Other,2.904640,2904640
+East & Southern Asia,Human,412.995600,4129956000
+East & Southern Asia,Pig,882.046294,882046294
+East & Southern Asia,Cattle,104.174512,104174512
+East & Southern Asia,Chicken,2468.394400,2468394400
+East & Southern Asia,Goats/Sheep,506.663572,506663572
+East & Southern Asia,Other,701.698032,701698032
+Australia,Other,1.02363,102363
+Australia,Goats/Sheep,57.107673,57107673
+Australia,Chicken,75.736500,75736500
+Australia,Cattle,13.661200,13661200
+Australia,Pig,8.099251,8099251
+Australia,Human,8.0234802,80234802
+Africa,Other,87.630284,87630284
+Africa,Goats/Sheep,235.775497,235775497
+Africa,Chicken,438.725300,438725300
+Africa,Cattle,41.050364,41050364
+Africa,Pig,29.884126,29884126
+Africa,Human,122.5080000,1225080000
+South America,Human,46.4059800,464059800
+South America,Pig,71.687535,71687535
+South America,Cattle,65.319460,65319460
+South America,Chicken,980.158600,980158600
+South America,Goats/Sheep,22.939189,22939189
+South America,Other,80.964454,80964454
+North America,Human,53.3583000,533583000
+North America,Pig,159.235974,159235974
+North America,Cattle,44.921414,44921414
+North America,Chicken,1187.144800,1187144800
+North America,Goats/Sheep,8.533727,8533727
+North America,Other,5.270949,5270949
