@@ -334,34 +334,6 @@ function drawRadialBarChart(csv) {
         let chart = div.append("svg")        
         .attr("id", "tooltip_svg");
 
-        var tt_data = [4, 8];
-
-        var x = d3.scale.linear()
-            .domain([0, d3.max(tt_data)])
-            .range([0, tooltip_width]);
-
-            /*
-        chart
-            .attr("width", tooltip_width)
-            .attr("height", barHeight * tt_data.length);
-
-        var selection = chart.selectAll("g")
-            .data(tt_data)
-            .enter().append("g")
-            .attr("transform", function(d, i) { return "translate(0," + i * barHeight + ")"; });
-
-        selection.append("rect")
-            .attr("width", x)
-            .attr("height", barHeight - 1)
-            .attr("fill", "lightblue");
-
-        selection.append("text")
-            .attr("x", 5)//function(d) { return x(d) - 3; }
-            .attr("y", barHeight / 2)
-            .attr("dy", ".35em")
-            .text(function(d) { return d; });
-        // ---------------------
-*/
         console.log(data);
 
         // tooltip fadein
@@ -373,30 +345,31 @@ function drawRadialBarChart(csv) {
             div.style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY - 28) + "px");
 
-            div.select('#description').html("<h4>" + data[index].category_label + "</h4><br/>" +  data[index].livestock + 
-            "<p>" + data[index].amount + " vs. "+ humans[data[index].category_label] +"</p><br/>");
+            div.select('#description').html("<h4>" + data[index].category_label + "</h4>" );
 
             // prepare bar graph
-            var new_data = [data[index].amount, humans[data[index].category_label]];
+            var new_data_names = ["Humans", data[index].livestock];
+            var new_data = [+data[index].amount, +humans[data[index].category_label]];
 
             // set domain to new data
-            var scaleX = d3.scale.linear()
-            .range([0,tooltip_width])
-            .domain([0,d3.max(new_data)]);
+            var xChart = d3.scale.linear()
+            .domain([0,d3.max(new_data)])
+            .range([0,tooltip_width]);
 
             console.log("newdata:" + new_data);
 
-            // bind new data
-            var selection = d3.select("#tooltip_svg").selectAll("g").data(new_data);
-            
-            // remove old bars
-            selection.exit().remove();
+            // remove old svg
+            d3.select("#tooltip_svg").remove();
 
+            // create svg and bind new data
+            var selection = d3.select(".tooltip").append("svg")        
+            .attr("id", "tooltip_svg").selectAll("g").data(new_data);
+            
             var gs = selection.enter().append("g")
             .attr("transform", function(d, i) { return "translate(0," + i * barHeight + ")"; });
 
             gs.append("rect")
-            .attr("width", scaleX)
+            .attr("width", xChart)
             .attr("height", barHeight - 1)
             .attr("fill", "lightblue");
 
@@ -404,7 +377,10 @@ function drawRadialBarChart(csv) {
             .attr("x", 5)
             .attr("y", barHeight / 2)
             .attr("dy", ".35em")
-            .text(function(d) { return d; });
+            .text(function(d, i) { return d.toLocaleString() + " " + new_data_names[i]; });
+
+            // remove old bars
+            selection.exit().remove();
         }).on("mouseout", function(d) {
                 div.transition()
                     .duration(200)
