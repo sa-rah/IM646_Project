@@ -113,6 +113,8 @@ function drawRadialBarChart(csv) {
         let angle = 0,
             rotate = 0;
 
+        var humans = [];
+
         data.forEach(function(d, i) {
             // bars start and end angles
             d.startAngle = angle;
@@ -122,7 +124,13 @@ function drawRadialBarChart(csv) {
             // y axis minor lines (i.e. questions) rotation
             d.rotate = rotate;
             rotate += 360 / numCatBars / catCounts[d.category_label];
+
+            // create human array
+            if(d.livestock == "Human"){
+                humans[d.category_label] = d.amount;
+            }
         });
+
 
         // category_label
         let arc_category_label = d3.svg.arc()
@@ -304,25 +312,93 @@ function drawRadialBarChart(csv) {
                 };
             });
 
+
+            
+        // ----------- TOOLTIP ----------------------
+
+        var tooltip_width = 200;
+        var tooltip_height = 300;
+
+        // append tooltip div container
         let div = d3.select("body").append("div")
             .attr("class", "tooltip")
-            .style("opacity", 0);
+            .style("opacity", 0)        
+            .attr("width",  tooltip_width)
+            .attr("height", tooltip_height);
+        
+        // append description div to tooltip div
+        div.append("div").attr("id","description");
+
+        // append svg for bargraph
+        let chart = div.append("svg")        
+        .attr("class", "tt");
+
+        var tt_data = [4, 8];
+
+        var barHeight = 15;
+
+        var x = d3.scale.linear()
+            .domain([0, d3.max(tt_data)])
+            .range([0, tooltip_width]);
+
+        chart
+            .attr("width", tooltip_width)
+            .attr("height", barHeight * tt_data.length);
+
+        var bar = chart.selectAll("g")
+            .data(tt_data)
+            .enter().append("g")
+            .attr("transform", function(d, i) { return "translate(0," + i * barHeight + ")"; });
+
+        bar.append("rect")
+            .attr("width", x)
+            .attr("height", barHeight - 1)
+            .attr("fill", "lightblue");
+
+        bar.append("text")
+            .attr("x", 5)//function(d) { return x(d) - 3; }
+            .attr("y", barHeight / 2)
+            .attr("dy", ".35em")
+            .text(function(d) { return d; });
+        // ---------------------
 
         console.log(data);
 
-        // TOOLTIP
+        // tooltip fadein
         bars.on("mouseover", function(d, index) {
             div.transition()
                 .duration(200)
-                .style("opacity", .9);
-            div.html("<h4>" + data[index].category_label + "</h4><br/>" + data[index].livestock + "<br/>")
-                .style("left", (d3.event.pageX) + "px")
+                .style("opacity", 1.0);
+
+            div.style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY - 28) + "px");
+
+            div.select('#description').html("<h4>" + data[index].category_label + "</h4><br/>" +  data[index].livestock + 
+            "<p>" + data[index].amount + " vs. "+ humans[data[index].category_label] +"</p><br/>");
+
+            var scaleX = d3.scale.linear().range([0,tooltip_width]);
+            scaleX.domain([0,d3.max([humans[data[index].category_label],data[index].amount])]);
+
+            // remove old bars
+            var g = chart.selectAll("g")
+            .remove()
+            .exit()
+            .data(data);
+
+            var new_data = [6, 5,6];
+            chart.enter().append("rect")
+            .attr("width", x)
+            .attr("height", barHeight - 1)
+            .attr("fill", "lightblue");
+            
+
         }).on("mouseout", function(d) {
                 div.transition()
                     .duration(200)
                     .style("opacity", 0);
         });
+
+        // --------------------------------------------------
 
         let x_scale = d3.scale.log()
             .domain([1, 2500])
