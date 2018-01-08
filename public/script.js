@@ -318,7 +318,7 @@ function drawRadialBarChart(csv) {
 
         var tooltip_width = 200;
         var tooltip_height = 300;
-        var barHeight = 15;
+        var barHeight = 25;
 
         // append tooltip div container
         let div = d3.select("body").append("div")
@@ -371,7 +371,7 @@ function drawRadialBarChart(csv) {
             gs.append("rect")
             .attr("width", xChart)
             .attr("height", barHeight - 1)
-            .attr("fill", "#00BCD4");
+            .attr("fill", "#00838F");
 
             gs.append("text")
             .attr("x", 5)

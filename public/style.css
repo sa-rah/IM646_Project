@@ -69,7 +69,7 @@ div.tooltip {
 #tooltip_svg {
     font: 12px Dosis, sans-serif;
     font-weight: 700;
-    color: #fff;
+    color: #fff !important;
 }
 
 .description {
@@ -140,9 +140,10 @@ span {
 }
 
 .category-label-text {
-    font-weight: bold;
+    font-weight: 800;
     font-size: 14px;
     fill: #fff;
+    color: #006064;
 }
 
 .question-labels {
