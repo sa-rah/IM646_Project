@@ -348,7 +348,7 @@ function drawRadialBarChart(csv) {
             div.select('#description').html("<h4>" + data[index].category_label + "</h4>" );
 
             // prepare bar graph
-            var new_data_names = ["Humans", data[index].livestock];
+            var new_data_names = [data[index].livestock, "Human"];
             var new_data = [+data[index].amount, +humans[data[index].category_label]];
 
             // set domain to new data
