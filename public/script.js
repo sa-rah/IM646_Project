@@ -345,7 +345,7 @@ function drawRadialBarChart(csv) {
             div.style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY - 28) + "px");
 
-            div.select('#description').html("<h4>" + data[index].category_label + "</h4>" );
+            div.select('#description').html("<h5>Data:</h5><h4>" + data[index].category_label + " - " + data[index].livestock + "</h4>" );
 
             // prepare bar graph
             var new_data_names = [data[index].livestock, "Human"];
@@ -371,7 +371,7 @@ function drawRadialBarChart(csv) {
             gs.append("rect")
             .attr("width", xChart)
             .attr("height", barHeight - 1)
-            .attr("fill", "lightblue");
+            .attr("fill", "#00BCD4");
 
             gs.append("text")
             .attr("x", 5)
@@ -381,11 +381,11 @@ function drawRadialBarChart(csv) {
 
             // remove old bars
             selection.exit().remove();
-        }).on("mouseout", function(d) {
-                div.transition()
-                    .duration(200)
-                    .style("opacity", 0);
-        });
+            }).on("mouseout", function(d) {
+                    div.transition()
+                        .duration(200)
+                        .style("opacity", 0);
+            });
 
         // --------------------------------------------------
 

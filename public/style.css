@@ -34,6 +34,14 @@ h4 {
     font-size: 14px;
     color: #fff;
     font-weight: 700;
+    line-height: 1;
+    margin-top: 0;
+}
+
+h5 {
+    line-height: 1;
+    margin: 0;
+    margin-bottom: 5px;
 }
 
 a {
@@ -49,12 +57,19 @@ div.tooltip {
     text-align: center;
     width: 250px;
     height: 100px;
-    padding: 2px;
-    font: 12px sans-serif;
+    padding: 15px;
+    font: 12px Dosis, sans-serif;
     background: #006064;
     border: 0px;
     border-radius: 2px;
     pointer-events: none;
+    color: #fff;
+}
+
+#tooltip_svg {
+    font: 12px Dosis, sans-serif;
+    font-weight: 700;
+    color: #fff;
 }
 
 .description {
