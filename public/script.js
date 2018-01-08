@@ -390,12 +390,12 @@ function drawRadialBarChart(csv) {
         // --------------------------------------------------
 
         let x_scale = d3.scale.log()
-            .domain([1, 2500])
+            .domain([1, 25000])
             .range([innerRadius, maxBarHeight]);
 
 
         let y_scale = d3.scale.log()
-            .domain([1, 2500])
+            .domain([1, 25000])
             .range([-innerRadius, -maxBarHeight]);
 
         svg.selectAll("circle.x.minor")
