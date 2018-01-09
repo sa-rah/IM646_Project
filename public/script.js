@@ -56,9 +56,98 @@ function drawRadialBarChart(csv) {
         .attr("stop-color", "#D4DAE0")
         .attr("stop-opacity", 1);
 
+    // radial gradients
     gradients = defs
         .append("radialGradient")
         .attr("id", "gradient-bars")
+        .attr("gradientUnits", "userSpaceOnUse")
+        .attr("cx", "0")
+        .attr("cy", "0")
+        .attr("r", maxBarHeight)
+        .attr("spreadMethod", "pad");
+
+    gradients.append("stop")
+        .attr("offset", "0%")
+        .attr("stop-color", "#da8954");
+
+    gradients.append("stop")
+        .attr("offset", "50%")
+        .attr("stop-color", "#cf9696");
+
+    gradients.append("stop")
+        .attr("offset", "100%")
+        .attr("stop-color", "#831a33");
+
+    // human
+    gradients = defs
+        .append("radialGradient")
+        .attr("id", "gradient-bars-human")
+        .attr("gradientUnits", "userSpaceOnUse")
+        .attr("cx", "0")
+        .attr("cy", "0")
+        .attr("r", maxBarHeight)
+        .attr("spreadMethod", "pad");
+
+    gradients.append("stop")
+        .attr("offset", "0%")
+        .attr("stop-color", "#608016");
+
+    gradients.append("stop")
+        .attr("offset", "50%")
+        .attr("stop-color", "#509840");
+
+    gradients.append("stop")
+        .attr("offset", "100%")
+        .attr("stop-color", "#3fc571");
+
+    // pig
+    gradients = defs
+        .append("radialGradient")
+        .attr("id", "gradient-bars-pig")
+        .attr("gradientUnits", "userSpaceOnUse")
+        .attr("cx", "0")
+        .attr("cy", "0")
+        .attr("r", maxBarHeight)
+        .attr("spreadMethod", "pad");
+
+    gradients.append("stop")
+        .attr("offset", "0%")
+        .attr("stop-color", "#825d19");
+
+    gradients.append("stop")
+        .attr("offset", "50%")
+        .attr("stop-color", "#8b9a42");
+
+    gradients.append("stop")
+        .attr("offset", "100%")
+        .attr("stop-color", "#77bc45");
+
+    // cattle
+    gradients = defs
+        .append("radialGradient")
+        .attr("id", "gradient-bars-cattle")
+        .attr("gradientUnits", "userSpaceOnUse")
+        .attr("cx", "0")
+        .attr("cy", "0")
+        .attr("r", maxBarHeight)
+        .attr("spreadMethod", "pad");
+
+    gradients.append("stop")
+        .attr("offset", "0%")
+        .attr("stop-color", "#5c4293");
+
+    gradients.append("stop")
+        .attr("offset", "50%")
+        .attr("stop-color", "#49518f");
+
+    gradients.append("stop")
+        .attr("offset", "100%")
+        .attr("stop-color", "#2b557b");
+
+    // chicken
+    gradients = defs
+        .append("radialGradient")
+        .attr("id", "gradient-bars-chicken")
         .attr("gradientUnits", "userSpaceOnUse")
         .attr("cx", "0")
         .attr("cy", "0")
@@ -77,6 +166,29 @@ function drawRadialBarChart(csv) {
         .attr("offset", "100%")
         .attr("stop-color", "#3F51B5");
 
+    // goats
+        gradients = defs
+        .append("radialGradient")
+        .attr("id", "gradient-bars-goats")
+        .attr("gradientUnits", "userSpaceOnUse")
+        .attr("cx", "0")
+        .attr("cy", "0")
+        .attr("r", maxBarHeight)
+        .attr("spreadMethod", "pad");
+
+    gradients.append("stop")
+        .attr("offset", "0%")
+        .attr("stop-color", "#aa9c4f");
+
+    gradients.append("stop")
+        .attr("offset", "50%")
+        .attr("stop-color", "#c0730b");
+
+    gradients.append("stop")
+        .attr("offset", "100%")
+        .attr("stop-color", "#c0730b");
+
+    //---
     svg.append("circle")
         .attr("r", maxBarHeight + 70)
         .classed("category-circle", true);
@@ -301,6 +413,27 @@ function drawRadialBarChart(csv) {
             })
             .attr("d", arc);
 
+        let c10 = d3.scale.category10();
+
+        // color bars uniquely according to category
+
+        bars.each(function(d, index){
+            d3.select(this).attr("fill",c10(data[index].livestock)).attr("class","");
+            /*
+            if(data[index].livestock == "Human"){
+                d3.select(this).attr("class","bars-human");
+            }else if(data[index].livestock == "Pig"){
+               d3.select(this).attr("class","bars-pig");
+            }else if(data[index].livestock == "Cattle"){
+                d3.select(this).attr("class","bars-cattle");
+            }else if(data[index].livestock == "Chicken"){
+                d3.select(this).attr("class","bars-chicken");
+            }else if(data[index].livestock == "Goats/ Sheep"){
+                d3.select(this).attr("class","bars-goats");
+            }
+            */
+        });
+
         bars.transition().ease("elastic").duration(1000).delay(function(d, i) {
             return i * 100;
         })
@@ -344,7 +477,8 @@ function drawRadialBarChart(csv) {
 
             div.style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY - 28) + "px");
-
+               // .style("background", c10(index));
+            
             div.select('#description').html("<h5>Data:</h5><h4>" + data[index].category_label + " - " + data[index].livestock + "</h4>" );
 
             // prepare bar graph
@@ -355,8 +489,6 @@ function drawRadialBarChart(csv) {
             var xChart = d3.scale.linear()
             .domain([0,d3.max(new_data)])
             .range([0,tooltip_width]);
-
-            console.log("newdata:" + new_data);
 
             // remove old svg
             d3.select("#tooltip_svg").remove();

@@ -119,6 +119,22 @@ span {
     fill: url(#gradient-bars);
 }
 
+.bars-human{
+    fill: url(#gradient-bars-human);
+}
+.bars-pig{
+    fill: url(#gradient-bars-pig);
+}
+.bars-cattle{
+    fill: url(#gradient-bars-cattle);
+}
+.bars-chicken{
+    fill: url(#gradient-bars-chicken);
+}
+.bars-goats{
+    fill: url(#gradient-bars-goats);
+}
+
 .gridlines {
     fill: none;
     stroke: #fff;
